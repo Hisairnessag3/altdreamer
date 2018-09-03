@@ -152,11 +152,8 @@ def main(inputdir, outputdir, preview, octaves, octave_scale, iterations, jitter
     if gpu is 1:
         caffe.set_mode_gpu()
         caffe.set_device(0)
-        caffe.set_mode_gpu()
-        caffe.set_device(1)
-        caffe.set_mode_gpu()
-        caffe.set_device(2)
-
+      
+    
     # load images & sort them
     vidinput = os.listdir(inputdir)
     #vidinput = natsort.natsorted(os.listdir(inputdir))
