@@ -152,8 +152,8 @@ def main(inputdir, outputdir, preview, octaves, octave_scale, iterations, jitter
     if gpu is 1:
         caffe.set_mode_gpu()
         caffe.set_device(0)
-      
-    
+
+
     # load images & sort them
     vidinput = os.listdir(inputdir)
     #vidinput = natsort.natsorted(os.listdir(inputdir))
@@ -199,16 +199,16 @@ def main(inputdir, outputdir, preview, octaves, octave_scale, iterations, jitter
                 return deepdream(net, frame, iter_n=iterations, step_size=stepsize, octave_n=octaves,
                              octave_scale=octave_scale, jitter=jitter, end=endparam)
             else:
-                iterations = random_sample(iterations=iterations)
-                return deepdream(net, frame, iter_n=iterations, step_size=stepsize, octave_n=octaves,
+                #iterations = random_sample(iterations=iterations)
+                return deepdream(net, frame, iter_n=random_sample(iterations), step_size=stepsize, octave_n=octaves,
                              octave_scale=octave_scale, jitter=jitter, end=endparam)
         else:
             if random == 0:
                 return deepdream(net, frame, iter_n=iterations, step_size=stepsize, octave_n=octaves,
                              octave_scale=octave_scale, jitter=jitter, end=endparam, objective=objective_guide)
             else:
-                iterations = random_sample(iterations=iterations)
-                return deepdream(net, frame, iter_n=iterations, step_size=stepsize, octave_n=octaves,
+                #iterations = random_sample(iterations=iterations)
+                return deepdream(net, frame, iter_n=random_sample(iterations), step_size=stepsize, octave_n=octaves,
                              octave_scale=octave_scale, jitter=jitter, end=endparam, objective=objective_guide)
 
 
